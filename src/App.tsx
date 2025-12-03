@@ -60,4 +60,30 @@ function App() {
   );
 }
 
+export default App;          >
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/ongoing" element={<OngoingPage />} />
+              <Route path="/complete" element={<CompletePage />} />
+              <Route path="/search" element={<SearchPage />} />
+              <Route path="/schedule" element={<SchedulePage />} />
+              <Route path="/genres" element={<GenresPage />} />
+              <Route path="/movie" element={<MoviePage />} />
+              <Route path="/favorites" element={<FavoritesPage />} />
+              <Route path="/author" element={<AuthorPage />} />
+              <Route path="/anime/:slug" element={<AnimeDetailPage />} />
+              <Route path="/episode/:slug" element={<EpisodePage />} />
+              <Route path="/movie/:slug" element={<MovieDetailPage />} />
+              <Route path="/movie/watch/:slug" element={<MovieWatchPage />} />
+              <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+          </Suspense>
+        </main>
+        <Footer />
+        <BottomNavigation />
+      </div>
+    </WatchHistoryProvider>
+  );
+}
+
 export default App;
