@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+
+
+body {
+  font-family: 'PT Sans', Helvetica, sans-serif;
+}
+
+@layer utilities {
+  /* Glassmorphism utilities - using backdrop-filter */
+  .glass-effect {
+    backdrop-filter: blur(10px) saturate(150%);
+    -webkit-backdrop-filter: blur(10px) saturate(150%);
+  }
+
+  .glass-effect-strong {
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+  }
+
+  .glass-effect-ultra {
+    backdrop-filter: blur(32px) saturate(200%);
+    -webkit-backdrop-filter: blur(32px) saturate(200%);
+  }
+
+  /* Smooth animations */
+  @keyframes slide-in-from-top {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-in {
+    animation: slide-in-from-top 0.3s ease-out;
+  }
+
+  /* Gradient animation for watch button */
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 3s ease infinite;
+  }
+
+  /* Smooth scroll for better mobile experience */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Touch-friendly tap highlight */
+  * {
+    -webkit-tap-highlight-color: rgba(99, 179, 237, 0.2);
+  }
+
+  /* Prevent horizontal scroll on mobile */
+  body {
+    overflow-x: hidden;
+  }
+
+
+  /* Header Navigation Enhancements */
+  .nav-link-enhanced {
+    position: relative;
+  }
+
+  .nav-link-enhanced::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 0.5rem;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(131, 58, 180, 0.3), rgba(253, 29, 29, 0.3), rgba(252, 176, 69, 0.3));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .nav-link-enhanced:hover::before {
+    opacity: 0.5;
+  }
+
+  /* Glow effect for logo */
+  .drop-shadow-glow {
+    filter: drop-shadow(0 0 8px rgba(234, 179, 8, 0.5));
+  }
+
+  /* Mobile navigation link animation */
+  @keyframes slideInFromLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .mobile-nav-link {
+    animation: slideInFromLeft 0.3s ease-out forwards;
+    opacity: 0;
+  }
+
+  /* Gradient text animation */
+  @keyframes shimmer {
+    0% {
+      background-position: -200% center;
+    }
+    100% {
+      background-position: 200% center;
+    }
+  }
+
+  .animate-shimmer {
+    background-size: 200% auto;
+    animation: shimmer 3s linear infinite;
+  }
+}
